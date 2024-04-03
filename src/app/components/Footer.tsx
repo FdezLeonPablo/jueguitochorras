@@ -21,7 +21,7 @@ const Footer = () => {
           </a>
         </li>
         <li>
-          <a href="https://thecatapi.com/docs.html" target="_blank" rel="noopener noreferrer">
+          <a href="https://developers.thecatapi.com/view-account/ylX4blBYT9FaoVd6OhvR?report=bOoHBz-8t" target="_blank" rel="noopener noreferrer">
             The Cat API Docs
           </a>
         </li>
