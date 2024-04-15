@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react';
 import Cat from './components/cat';
 import { CatData, fetchCat } from './utils/fetchCat';
 
+const backCardImage = 'assets/backCard.jpg'
+
 const Page: React.FC = () => {
   const [catImages, setCatImages] = useState<CatData[]>([]);
   const [selectedCats, setSelectedCats] = useState<number[]>([]);
@@ -58,25 +60,27 @@ const Page: React.FC = () => {
 
 
   return (
-    <div>
-      <h1>Welcome to Jueguitochorras!</h1>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
-        {catImages.length > 0 ? (
-          catImages.map((cat, index) => (
-            <Cat
-              key={index}
-              src={cat.url}
-              isSelected={selectedCats.includes(index)}
-              isFound={foundPairs.includes(index)}
-              onClick={() => handleCardClick(index)}
-            />
-          ))
-        ) : (
-          <p>Loading...</p>
-        )}
+    <div className="container mx-auto p-4">
+      <h1 className="text-4xl text-center mb-6">Cat Memory</h1>
+      <div className='max-w-4xl mx-auto'>
+        <div className="grid grid-cols-5 gap-x-2 gap-y-2">
+          {catImages.length > 0 ? (
+            catImages.map((cat, index) => (
+              <Cat
+                key={index}
+                src={cat.url}
+                backImageSrc={backCardImage}
+                isSelected={selectedCats.includes(index)}
+                isFound={foundPairs.includes(index)}
+                onClick={() => handleCardClick(index)}
+              />
+            ))
+          ) : (
+            <p>Loading...</p>
+          )}
 
+        </div>
       </div>
-
     </div>
   );
 };
